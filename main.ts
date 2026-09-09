@@ -1,3 +1,4 @@
+let GameStart = 0
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -204,6 +205,14 @@ let TitleLegend = sprites.create(img`
     `, SpriteKind.Player)
 TitleLegend.setPosition(80, 80)
 let myMenu = miniMenu.createMenu(
-miniMenu.createMenuItem("Start Game!"),
-miniMenu.createMenuItem("Exit")
+miniMenu.createMenuItem("Start Game!")
 )
+myMenu.setPosition(80, 87)
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
+    if (selectedIndex == 0) {
+        GameStart = 1
+        music.play(music.createSoundEffect(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+    } else {
+    	
+    }
+})
