@@ -1,7 +1,3 @@
-browserEvents.Z.onEvent(browserEvents.KeyEvent.Pressed, function () {
-    game.gameOver(false)
-    game.setGameOverMessage(false, "GAME OVER!")
-})
 let GameStart = 0
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
@@ -212,6 +208,10 @@ let myMenu = miniMenu.createMenu(
 miniMenu.createMenuItem("Start Game!")
 )
 myMenu.setPosition(80, 87)
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection, selectedIndex) {
+    game.gameOver(false)
+    game.setGameOverMessage(false, "GAME OVER!")
+})
 miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
     if (selectedIndex == 0) {
         GameStart = 1
