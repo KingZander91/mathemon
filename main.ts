@@ -1,4 +1,29 @@
+browserEvents.Z.onEvent(browserEvents.KeyEvent.Pressed, function () {
+    game.gameOver(false)
+    game.setGameOverMessage(false, "GAME OVER!")
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runMovementAnimation(
+    TitleLegend,
+    animation.animationPresets(animation.easeLeft),
+    2000,
+    false
+    )
+    scene.cameraFollowSprite(TitleLegend)
+    scene.cameraShake(4, 1000)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runMovementAnimation(
+    TitleLegend,
+    animation.animationPresets(animation.easeRight),
+    2000,
+    false
+    )
+    scene.cameraFollowSprite(TitleLegend)
+    scene.cameraShake(8, 1000)
+})
 let GameStart = 0
+let TitleLegend: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -122,10 +147,10 @@ scene.setBackgroundImage(img`
     dddddddddd444ddddd3ddddddddddddd4ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd44dddddddddddddddddddddddddddddddddd4ddddddddd
     `)
 let TitleText = fancyText.create("Mathemon", 0)
-TitleText.setPosition(50, 20)
+TitleText.setPosition(40, 12)
 fancyText.setFont(TitleText, fancyText.gothic_large)
 fancyText.setColor(TitleText, 15)
-let TitleLegend = sprites.create(img`
+TitleLegend = sprites.create(img`
     ........................bbbbbbbbbbbbbbbbbbb..................................
     ......................bbb4444444444444444bbbbb...............................
     .....................bb4444444444444444444444bbb..355555555..................
@@ -208,10 +233,6 @@ let myMenu = miniMenu.createMenu(
 miniMenu.createMenuItem("Start Game!")
 )
 myMenu.setPosition(80, 87)
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection, selectedIndex) {
-    game.gameOver(false)
-    game.setGameOverMessage(false, "GAME OVER!")
-})
 miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
     if (selectedIndex == 0) {
         GameStart = 1
