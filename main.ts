@@ -245,6 +245,7 @@ sprites.destroy(myMenu)
 sprites.destroy(TitleText)
 sprites.destroy(myMenu)
 sprites.destroy(TitleLegend)
+tiles.setCurrentTilemap(tilemap`level2`)
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -263,7 +264,6 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-tiles.setCurrentTilemap(tilemap`level1`)
-controller.moveSprite(mySprite)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(11, 5))
 scene.cameraFollowSprite(mySprite)
+controller.moveSprite(mySprite)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 15))
