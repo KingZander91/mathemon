@@ -1,29 +1,4 @@
-browserEvents.Z.onEvent(browserEvents.KeyEvent.Pressed, function () {
-    game.gameOver(false)
-    game.setGameOverMessage(false, "GAME OVER!")
-})
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runMovementAnimation(
-    TitleLegend,
-    animation.animationPresets(animation.easeLeft),
-    2000,
-    false
-    )
-    scene.cameraFollowSprite(TitleLegend)
-    scene.cameraShake(4, 1000)
-})
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runMovementAnimation(
-    TitleLegend,
-    animation.animationPresets(animation.easeRight),
-    2000,
-    false
-    )
-    scene.cameraFollowSprite(TitleLegend)
-    scene.cameraShake(8, 1000)
-})
 let GameStart = 0
-let TitleLegend: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -150,7 +125,7 @@ let TitleText = fancyText.create("Mathemon", 0)
 TitleText.setPosition(40, 12)
 fancyText.setFont(TitleText, fancyText.gothic_large)
 fancyText.setColor(TitleText, 15)
-TitleLegend = sprites.create(img`
+let TitleLegend = sprites.create(img`
     ........................bbbbbbbbbbbbbbbbbbb..................................
     ......................bbb4444444444444444bbbbb...............................
     .....................bb4444444444444444444444bbb..355555555..................
@@ -233,6 +208,30 @@ let myMenu = miniMenu.createMenu(
 miniMenu.createMenuItem("Start Game!")
 )
 myMenu.setPosition(80, 87)
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.Right, function (selection, selectedIndex) {
+    animation.runMovementAnimation(
+    TitleLegend,
+    animation.animationPresets(animation.easeRight),
+    2000,
+    false
+    )
+    scene.cameraFollowSprite(TitleLegend)
+})
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.Left, function (selection, selectedIndex) {
+    animation.runMovementAnimation(
+    TitleLegend,
+    animation.animationPresets(animation.easeLeft),
+    2000,
+    false
+    )
+    scene.cameraFollowSprite(TitleLegend)
+    scene.cameraShake(4, 1000)
+})
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection, selectedIndex) {
+    game.gameOver(false)
+    scene.cameraShake(8, 1000)
+    game.setGameOverMessage(false, "GAME OVER!")
+})
 miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
     if (selectedIndex == 0) {
         GameStart = 1
@@ -241,3 +240,30 @@ miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selecte
     	
     }
 })
+pauseUntil(() => GameStart == 1)
+sprites.destroy(myMenu)
+sprites.destroy(TitleText)
+sprites.destroy(myMenu)
+sprites.destroy(TitleLegend)
+let mySprite = sprites.create(img`
+    . . . . . . f f f f . . . . . . 
+    . . . . f f f 2 2 f f f . . . . 
+    . . . f f f 2 2 2 2 f f f . . . 
+    . . f f f e e e e e e f f f . . 
+    . . f f e 2 2 2 2 2 2 e e f . . 
+    . . f e 2 f f f f f f 2 e f . . 
+    . . f f f f e e e e f f f f . . 
+    . f f e f b f 4 4 f b f e f f . 
+    . f e e 4 1 f d d f 1 4 e e f . 
+    . . f e e d d d d d d e e f . . 
+    . . . f e e 4 4 4 4 e e f . . . 
+    . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+    . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+    . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . . f f . . f f . . . . . 
+    `, SpriteKind.Player)
+tiles.setCurrentTilemap(tilemap`Town`)
+controller.moveSprite(mySprite)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
+scene.cameraFollowSprite(mySprite)
