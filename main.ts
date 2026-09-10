@@ -263,7 +263,7 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-tiles.setCurrentTilemap(tilemap`Town`)
+tiles.setCurrentTilemap(tilemap`level1`)
 controller.moveSprite(mySprite)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(11, 5))
 scene.cameraFollowSprite(mySprite)
