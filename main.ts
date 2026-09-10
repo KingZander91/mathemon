@@ -217,7 +217,7 @@ miniMenu.onButtonPressed(myMenu, miniMenu.Button.Right, function (selection, sel
     )
     scene.cameraFollowSprite(TitleLegend)
 })
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.Left, function (selection, selectedIndex) {
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.Left, function (selection2, selectedIndex2) {
     animation.runMovementAnimation(
     TitleLegend,
     animation.animationPresets(animation.easeLeft),
@@ -227,13 +227,13 @@ miniMenu.onButtonPressed(myMenu, miniMenu.Button.Left, function (selection, sele
     scene.cameraFollowSprite(TitleLegend)
     scene.cameraShake(4, 1000)
 })
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection, selectedIndex) {
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection3, selectedIndex3) {
     game.gameOver(false)
     scene.cameraShake(8, 1000)
-    game.setGameOverMessage(false, "GAME OVER!")
+    game.setGameOverMessage(false, "Game exited, Why did you launch in the first place?")
 })
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selectedIndex) {
-    if (selectedIndex == 0) {
+miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection4, selectedIndex4) {
+    if (selectedIndex4 == 0) {
         GameStart = 1
         music.play(music.createSoundEffect(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
     } else {
@@ -241,11 +241,11 @@ miniMenu.onButtonPressed(myMenu, miniMenu.Button.A, function (selection, selecte
     }
 })
 pauseUntil(() => GameStart == 1)
+tiles.setCurrentTilemap(tilemap`level1`)
 sprites.destroy(myMenu)
 sprites.destroy(TitleText)
 sprites.destroy(myMenu)
 sprites.destroy(TitleLegend)
-tiles.setCurrentTilemap(tilemap`level2`)
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -264,6 +264,8 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-scene.cameraFollowSprite(mySprite)
-controller.moveSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 15))
+scene.cameraFollowSprite(mySprite)
+mySprite.sayText("Finally, The battle facility!", 1000, true)
+music.play(pianoRoll.createSong(hex`0041000408030100001c00020a006400f401640000040000000000000000000000000000000006900000000400010c04000800010a08000c0001060c001000010c10001400010a14001800010618001c00010c1c002000010a20002400010524002800010328002c0001012c003000010530003400010c34003800010a38003c0001063c004000010c40004400010a44004800010648004c00010c4c005000010a50005400010554005800010658005c0001055c006000010a`), music.PlaybackMode.UntilDone)
+controller.moveSprite(mySprite)
