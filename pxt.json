@@ -7,7 +7,8 @@
         "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.2",
         "multiplayer": "*",
         "browser-events": "*",
-        "arcade-piano-roll": "github:microsoft/arcade-piano-roll#v0.0.1"
+        "arcade-piano-roll": "github:microsoft/arcade-piano-roll#v0.0.1",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.2"
     },
     "files": [
         "main.blocks",
@@ -19,7 +20,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.1.23",
+        "target": "4.1.25",
         "targetId": "arcade"
     },
     "supportedTargets": [

@@ -1,3 +1,170 @@
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runMovementAnimation(
+    mySprite,
+    animation.animationPresets(animation.easeLeft),
+    2000,
+    false
+    )
+    scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.OnlyHorizontal)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . f 2 f e e e e f f . . . 
+        . . . f 2 2 2 f e e e e f f . . 
+        . . . f e e e e f f e e e f . . 
+        . . f e 2 2 2 2 e e f f f f . . 
+        . . f 2 e f f f f 2 2 2 e f . . 
+        . . f f f e e e f f f f f f f . 
+        . . f e e 4 4 f b e 4 4 e f f . 
+        . . f f e d d f 1 4 d 4 e e f . 
+        . f d d f d d d d 4 e e e f . . 
+        . f b b f e e e 4 e e f . . . . 
+        . f b b e d d 4 2 2 2 f . . . . 
+        . . f b e d d e 4 4 4 f f . . . 
+        . . . f f e e f f f f f f . . . 
+        . . . . f f f . . . f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . f 2 f e e e e f f . . . 
+        . . . f 2 2 2 f e e e e f f . . 
+        . . . f e e e e f f e e e f . . 
+        . . f e 2 2 2 2 e e f f f f . . 
+        . . f 2 e f f f f 2 2 2 e f . . 
+        . . f f f e e e f f f f f f f . 
+        . . f e e 4 4 f b e 4 4 e f f . 
+        . . . f e d d f 1 4 d 4 e e f . 
+        . . . . f d d d e e e e e f . . 
+        . . . . f e 4 e d d 4 f . . . . 
+        . . . . f 2 2 e d d e f . . . . 
+        . . . f f 5 5 f e e f f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . . f f f . . . f f . . . . 
+        `,img`
+        . . . . . f f f f f f . . . . . 
+        . . . . f 2 f e e e e f f . . . 
+        . . . f 2 2 2 f e e e e f f . . 
+        . . . f e e e e f f e e e f . . 
+        . . f e 2 2 2 2 e e f f f f . . 
+        . . f 2 e f f f f 2 2 2 e f . . 
+        . . f f f e e e f f f f f f f . 
+        . . f e e 4 4 f b e 4 4 e f f . 
+        . . f f e d d f 1 4 d 4 e e f . 
+        . f d d f d d d d 4 e e e f . . 
+        . f b b f e e e 4 e e f f . . . 
+        . f b b e d d 4 2 2 2 f . . . . 
+        . . f b e d d e 2 2 2 e . . . . 
+        . . . f f e e f 4 4 4 f . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . . . f f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d e e e e e f . . . 
+        . . . f e 4 e d d 4 f . . . . . 
+        . . . f 2 2 e d d e f . . . . . 
+        . . f f 5 5 f e e f f f . . . . 
+        . . f f f f f f f f f f . . . . 
+        . . . f f f . . . f f . . . . . 
+        `],
+    500,
+    false
+    )
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runMovementAnimation(
+    mySprite,
+    animation.animationPresets(animation.easeRight),
+    2000,
+    false
+    )
+    scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.OnlyHorizontal)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f e e e e f 2 f . . . . 
+        . . f f e e e e f 2 2 2 f . . . 
+        . . f e e e f f e e e e f . . . 
+        . . f f f f e e 2 2 2 2 e f . . 
+        . . f e 2 2 2 f f f f e 2 f . . 
+        . f f f f f f f e e e f f f . . 
+        . f f e 4 4 e b f 4 4 e e f . . 
+        . f e e 4 d 4 1 f d d e f . . . 
+        . . f e e e e e d d d f . . . . 
+        . . . . f 4 d d e 4 e f . . . . 
+        . . . . f e d d e 2 2 f . . . . 
+        . . . f f f e e f 5 5 f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . . f f . . . f f f . . . . 
+        `,img`
+        . . . . . f f f f f f . . . . . 
+        . . . f f e e e e f 2 f . . . . 
+        . . f f e e e e f 2 2 2 f . . . 
+        . . f e e e f f e e e e f . . . 
+        . . f f f f e e 2 2 2 2 e f . . 
+        . . f e 2 2 2 f f f f e 2 f . . 
+        . f f f f f f f e e e f f f . . 
+        . f f e 4 4 e b f 4 4 e e f . . 
+        . f e e 4 d 4 1 f d d e f f . . 
+        . . f e e e 4 d d d d f d d f . 
+        . . . f f e e 4 e e e f b b f . 
+        . . . . f 2 2 2 4 d d e b b f . 
+        . . . . e 2 2 2 e d d e b f . . 
+        . . . . f 4 4 4 f e e f f . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f e e e e f 2 f . . . . 
+        . . f f e e e e f 2 2 2 f . . . 
+        . . f e e e f f e e e e f . . . 
+        . . f f f f e e 2 2 2 2 e f . . 
+        . . f e 2 2 2 f f f f e 2 f . . 
+        . f f f f f f f e e e f f f . . 
+        . f f e 4 4 e b f 4 4 e e f . . 
+        . f e e 4 d 4 1 f d d e f . . . 
+        . . f e e e e e d d d f . . . . 
+        . . . . f 4 d d e 4 e f . . . . 
+        . . . . f e d d e 2 2 f . . . . 
+        . . . f f f e e f 5 5 f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . . f f . . . f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f e e e e f 2 f . . . . 
+        . . f f e e e e f 2 2 2 f . . . 
+        . . f e e e f f e e e e f . . . 
+        . . f f f f e e 2 2 2 2 e f . . 
+        . . f e 2 2 2 f f f f e 2 f . . 
+        . f f f f f f f e e e f f f . . 
+        . f f e 4 4 e b f 4 4 e e f . . 
+        . f e e 4 d 4 1 f d d e f f . . 
+        . . f e e e 4 d d d d f d d f . 
+        . . . . f e e 4 e e e f b b f . 
+        . . . . f 2 2 2 4 d d e b b f . 
+        . . . f f 4 4 4 e d d e b f . . 
+        . . . f f f f f f e e f f . . . 
+        . . . . f f . . . f f f . . . . 
+        `],
+    2000,
+    false
+    )
+})
+let mySprite: Sprite = null
 let GameStart = 0
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
@@ -208,25 +375,6 @@ let myMenu = miniMenu.createMenu(
 miniMenu.createMenuItem("Start Game!")
 )
 myMenu.setPosition(80, 87)
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.Right, function (selection, selectedIndex) {
-    animation.runMovementAnimation(
-    TitleLegend,
-    animation.animationPresets(animation.easeRight),
-    2000,
-    false
-    )
-    scene.cameraFollowSprite(TitleLegend)
-})
-miniMenu.onButtonPressed(myMenu, miniMenu.Button.Left, function (selection2, selectedIndex2) {
-    animation.runMovementAnimation(
-    TitleLegend,
-    animation.animationPresets(animation.easeLeft),
-    2000,
-    false
-    )
-    scene.cameraFollowSprite(TitleLegend)
-    scene.cameraShake(4, 1000)
-})
 miniMenu.onButtonPressed(myMenu, miniMenu.Button.B, function (selection3, selectedIndex3) {
     game.gameOver(false)
     scene.cameraShake(8, 1000)
@@ -246,7 +394,7 @@ sprites.destroy(myMenu)
 sprites.destroy(TitleText)
 sprites.destroy(myMenu)
 sprites.destroy(TitleLegend)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -264,8 +412,8 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 15))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
 scene.cameraFollowSprite(mySprite)
 mySprite.sayText("Finally, The battle facility!", 1000, true)
 music.play(pianoRoll.createSong(hex`0041000408030100001c00020a006400f401640000040000000000000000000000000000000006900000000400010c04000800010a08000c0001060c001000010c10001400010a14001800010618001c00010c1c002000010a20002400010524002800010328002c0001012c003000010530003400010c34003800010a38003c0001063c004000010c40004400010a44004800010648004c00010c4c005000010a50005400010554005800010658005c0001055c006000010a`), music.PlaybackMode.UntilDone)
-controller.moveSprite(mySprite)
+mySprite.changeScale(100, ScaleAnchor.Bottom)
